@@ -57,3 +57,22 @@ fadeElements.forEach(el => observer.observe(el));
 if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     observer.disconnect();
 }
+
+// Scroll-spy: highlight active nav link
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+
+function highlightNav() {
+    let current = '';
+    sections.forEach(s => {
+        const top = s.offsetTop - 100;
+        if (window.scrollY >= top) current = s.id;
+    });
+    navLinks.forEach(a => {
+        a.style.color = a.getAttribute('href') === '#' + current
+            ? 'var(--text-primary)'
+            : 'var(--text-secondary)';
+    });
+}
+
+window.addEventListener('scroll', highlightNav, { passive: true });
