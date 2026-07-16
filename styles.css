@@ -253,6 +253,27 @@ img {
     opacity: 0.7;
 }
 
+/* ============================================
+   ACERCA DE
+   ============================================ */
+.acerca-content {
+    max-width: 720px;
+}
+
+.acerca-content p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-md);
+}
+
+.acerca-cierre {
+    font-family: var(--font-body);
+    font-weight: 500;
+    color: var(--text-primary) !important;
+    font-style: italic;
+}
+
 .hero-actions {
     display: flex;
     gap: var(--space-md);
