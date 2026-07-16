@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Carlos Alberto Leyva Proenza — Médico neonatólogo, docente ESPOCH y desarrollador. Portfolio multidisciplinario.">
+    <title>Carlos A. Leyva Proenza — Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <nav class="nav">
+            <a href="#hero" class="nav-logo">CL</a>
+            <div class="nav-links">
+                <a href="#pilares">Pilares</a>
+                <a href="#proyectos">Proyectos</a>
+                <a href="#stack">Stack</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar tema">
+                <i class="ph ph-moon"></i>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section id="hero" class="hero">
+            <div class="container">
+                <p class="hero-eyebrow">Médico / Tecnología / Educación</p>
+                <h1 class="hero-name">Carlos Alberto<br>Leyva Proenza</h1>
+                <p class="hero-role">Médico neonatólogo<br>
+                Docente · <strong>ESPOCH</strong><br>
+                Médico Tratante · <strong>Hospital General IESS Riobamba</strong></p>
+                <p class="hero-orcid">
+                    <i class="ph ph-identification-card"></i>
+                    <a href="https://orcid.org/0000-0002-2681-6927" target="_blank" rel="noopener">ORCID 0000-0002-2681-6927</a>
+                </p>
+                <div class="hero-actions">
+                    <a href="#contacto" class="btn btn-primary">Contacto</a>
+                    <a href="#proyectos" class="btn btn-ghost">Ver proyectos</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pilares -->
+        <section id="pilares" class="section pilares">
+            <div class="container">
+                <p class="section-eyebrow">Lo que hago</p>
+                <h2 class="section-title">Tres áreas, un mismo enfoque</h2>
+                <div class="pilares-grid">
+                    <article class="pilar pilar-medicina">
+                        <div class="pilar-icon"><i class="ph ph-stethoscope"></i></div>
+                        <h3>Medicina</h3>
+                        <p>Neonatología clínica en Hospital General IESS Riobamba. Reanimación neonatal (NRP 9.ª ed.), manejo del ductus arterioso permeable, cuidados del recién nacido.</p>
+                    </article>
+                    <article class="pilar pilar-tech">
+                        <div class="pilar-icon"><i class="ph ph-code"></i></div>
+                        <h3>Tecnología</h3>
+                        <p>Construyo aplicaciones clínicas con Python, React, TypeScript, FastAPI y PostgreSQL. Automatización de procesos hospitalarios, IA generativa y análisis de datos.</p>
+                    </article>
+                    <article class="pilar pilar-educacion">
+                        <div class="pilar-icon"><i class="ph ph-graduation-cap"></i></div>
+                        <h3>Educación</h3>
+                        <p>Docente en la Escuela de Medicina, Facultad de Salud Pública de la ESPOCH. Creación de infografías interactivas, videos educativos con TTS y material basado en evidencia.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Proyectos -->
+        <section id="proyectos" class="section proyectos">
+            <div class="container">
+                <p class="section-eyebrow">Proyectos</p>
+                <h2 class="section-title">Lo que he construido</h2>
+
+                <div class="projects-grid">
+                    <!-- NRP-Trainer -->
+                    <article class="project-card cat-medicina">
+                        <div class="project-header">
+                            <span class="project-cat">Medicina</span>
+                            <a href="#" class="project-link" aria-label="Ver NRP-Trainer"><i class="ph ph-arrow-up-right"></i></a>
+                        </div>
+                        <h3>NRP-Trainer</h3>
+                        <p>Guía interactiva de reanimación neonatal, NRP 9.ª edición. Diagrama SVG, simulador de casos clínicos, calculadora de dosis.</p>
+                        <div class="project-tags">
+                            <span class="tag cat-medicina">HTML</span>
+                            <span class="tag cat-medicina">CSS</span>
+                            <span class="tag cat-medicina">JavaScript</span>
+                            <span class="tag cat-medicina">SVG</span>
+                        </div>
+                    </article>
+
+                    <!-- Neocalc -->
+                    <article class="project-card cat-medicina">
+                        <div class="project-header">
+                            <span class="project-cat">Medicina</span>
+                            <a href="#" class="project-link" aria-label="Ver Neocalc"><i class="ph ph-arrow-up-right"></i></a>
+                        </div>
+                        <h3>Neocalc IESS</h3>
+                        <p>Hub de cálculos clínicos de precisión para neonatología y pediatría. Modo oscuro, responsive, sin dependencias externas.</p>
+                        <div class="project-tags">
+                            <span class="tag cat-medicina">HTML</span>
+                            <span class="tag cat-medicina">CSS</span>
+                            <span class="tag cat-medicina">JavaScript</span>
+                        </div>
+                    </article>
+
+                    <!-- Historia -->
+                    <article class="project-card cat-tech">
+                        <div class="project-header">
+                            <span class="project-cat">Tecnología</span>
+                            <a href="#" class="project-link" aria-label="Ver Historia Clínica"><i class="ph ph-arrow-up-right"></i></a>
+                        </div>
+                        <h3>Historia Clínica Pediátrica</h3>
+                        <p>Sistema web completo para registro y consulta de historias clínicas. Vacunación, desarrollo, curvas de crecimiento.</p>
+                        <div class="project-tags">
+                            <span class="tag cat-tech">FastAPI</span>
+                            <span class="tag cat-tech">React</span>
+                            <span class="tag cat-tech">TypeScript</span>
+                            <span class="tag cat-tech">PostgreSQL</span>
+                            <span class="tag cat-tech">Docker</span>
+                        </div>
+                    </article>
+
+                    <!-- Docencia -->
+                    <article class="project-card cat-educacion">
+                        <div class="project-header">
+                            <span class="project-cat">Educación</span>
+                        </div>
+                        <h3>Material Docente</h3>
+                        <p>Infografías interactivas de neonatología, generación de audio con TTS, videos educativos con narración automatizada.</p>
+                        <div class="project-tags">
+                            <span class="tag cat-educacion">Python</span>
+                            <span class="tag cat-educacion">TTS</span>
+                            <span class="tag cat-educacion">matplotlib</span>
+                        </div>
+                    </article>
+
+                    <!-- App privada 1 -->
+                    <article class="project-card project-private">
+                        <div class="project-header">
+                            <span class="project-cat project-cat-private">Próximamente</span>
+                        </div>
+                        <h3>App Clínica</h3>
+                        <p>Herramienta clínica en desarrollo. Diseñada para resolver problemas específicos del día a día en neonatología.</p>
+                        <div class="project-tags">
+                            <span class="tag tag-private">En desarrollo</span>
+                        </div>
+                    </article>
+
+                    <!-- App privada 2 -->
+                    <article class="project-card project-private">
+                        <div class="project-header">
+                            <span class="project-cat project-cat-private">Próximamente</span>
+                        </div>
+                        <h3>Plataforma Educativa</h3>
+                        <p>Plataforma de educación médica interactiva. Próximamente disponible.</p>
+                        <div class="project-tags">
+                            <span class="tag tag-private">En desarrollo</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Publicaciones -->
+        <section id="publicaciones" class="section publicaciones">
+            <div class="container">
+                <p class="section-eyebrow">Investigación</p>
+                <h2 class="section-title">Publicaciones científicas</h2>
+
+                <div class="pub-list">
+                    <article class="pub-item">
+                        <div class="pub-meta">2026 · Polo del Conocimiento</div>
+                        <h3>Verónica Alejandra Jaya-Baldeón</h3>
+                        <p>Jaya-Baldeón VA, <strong>Leyva Proenza CA</strong>, et al.</p>
+                    </article>
+
+                    <article class="pub-item">
+                        <div class="pub-meta">2025 · Polo del Conocimiento</div>
+                        <h3>El papel de las trampas extracelulares de neutrófilos en la enterocolitis necrotizante: una revisión de la bibliografía</h3>
+                        <p><strong>Leyva Proenza CA</strong>, et al.</p>
+                    </article>
+
+                    <article class="pub-item">
+                        <div class="pub-meta">2025 · Correo Científico Médico</div>
+                        <h3>Estado hiperosmolar hiperglucémico, revisión bibliográfica</h3>
+                        <p><strong>Leyva Proenza CA</strong>, et al.</p>
+                    </article>
+
+                    <article class="pub-item">
+                        <div class="pub-meta">2024 · Anatomía Digital</div>
+                        <h3>Tratamiento del ductus arterioso permeable en neonatología: estado actual y desafíos futuros</h3>
+                        <p>García Veloz ML, <strong>Leyva Proenza CA</strong>, Goyes Guerra MB, Falconi Valencia MC.</p>
+                    </article>
+
+                    <article class="pub-item">
+                        <div class="pub-meta">2024 · La Ciencia al Servicio de la Salud</div>
+                        <h3>Alopecia triangular congénita bilateral en un neonato: reporte de caso</h3>
+                        <p><strong>Leyva Proenza CA</strong>, Mantilla Cadena CE, Valdez Gonzales JL, Cordones Garcés AG, Jaya Baldeón VA.</p>
+                    </article>
+
+                    <article class="pub-item">
+                        <div class="pub-meta">2020 · Correo Científico Médico</div>
+                        <h3>Papel de las citoquinas en la fisiopatología de la artritis reumatoide</h3>
+                        <p>Díaz GF, <strong>Leyva Proenza CA</strong>, Concepción Parra W, Castro Maquilón AG, Larrea Meza IS.</p>
+                    </article>
+
+                    <article class="pub-item">
+                        <div class="pub-meta">2019 · European Scientific Journal</div>
+                        <h3>Ganancia de peso materno y su relación con el peso y longitud al nacer del recién nacido</h3>
+                        <p>Cuvi-Guamán F, <strong>Leyva-Proenza C</strong>, Heredia-Aguirre S, Guallo-Paca M.</p>
+                    </article>
+
+                    <article class="pub-item">
+                        <div class="pub-meta">2019 · Correo Científico Médico</div>
+                        <h3>El riesgo de bajo peso al nacer</h3>
+                        <p>Díaz GF, <strong>Leyva Proenza CA</strong>, Carballo Ramos EV.</p>
+                    </article>
+
+                    <article class="pub-item">
+                        <div class="pub-meta">2019 · Correo Científico Médico</div>
+                        <h3>Dislipidemia en estados de resistencia a la insulina</h3>
+                        <p>Díaz GF, <strong>Leyva Proenza CA</strong>, Rodríguez Reyes E, Rodríguez Moldón Y, Duque R.</p>
+                    </article>
+
+                    <article class="pub-item">
+                        <div class="pub-meta">2019 · La Ciencia al Servicio de la Salud</div>
+                        <h3>Efecto del tiempo de hemodiálisis sobre el estado nutricional de pacientes renales</h3>
+                        <p>Rivera Reascos BJ, Taco Vega JM, Benítez S, <strong>Leyva Proenza CA</strong>.</p>
+                    </article>
+
+                    <article class="pub-item">
+                        <div class="pub-meta">2019 · La Ciencia al Servicio de la Salud</div>
+                        <h3>Enfermedades frecuentes de las vías respiratorias altas en la infancia</h3>
+                        <p>Valdivieso M, Montero López IL, Morocho Cayambe BL, Álvarez J, <strong>Leyva Proenza CA</strong>.</p>
+                    </article>
+
+                    <article class="pub-item">
+                        <div class="pub-meta">2019 · La Ciencia al Servicio de la Salud</div>
+                        <h3>Control vectorial del dengue. Epidemiología</h3>
+                        <p>Díaz GF, <strong>Leyva Proenza CA</strong>, Gómez Leyva B, Díaz Feria D.</p>
+                    </article>
+
+                    <article class="pub-item">
+                        <div class="pub-meta">2018 · Capítulo de libro SISANH</div>
+                        <h3>Manejo de la vía aérea en la reanimación neonatal</h3>
+                        <p>Montero López IL, Carballo Ramos EV, Feria Díaz GE, Flores Brito PR, <strong>Leyva Proenza CA</strong>.</p>
+                        <p class="pub-affil">Facultad de Salud Pública, Escuela de Medicina. ESPOCH, Riobamba, Ecuador.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stack -->
+        <section id="stack" class="section stack-section">
+            <div class="container">
+                <p class="section-eyebrow">Stack</p>
+                <h2 class="section-title">Herramientas y tecnologías</h2>
+
+                <div class="stack-group">
+                    <h3 class="stack-label">Frontend</h3>
+                    <div class="stack-pills">
+                        <span class="pill cat-tech">HTML5</span>
+                        <span class="pill cat-tech">CSS3</span>
+                        <span class="pill cat-tech">JavaScript</span>
+                        <span class="pill cat-tech">React</span>
+                        <span class="pill cat-tech">TypeScript</span>
+                        <span class="pill cat-tech">Tailwind CSS</span>
+                    </div>
+                </div>
+
+                <div class="stack-group">
+                    <h3 class="stack-label">Backend</h3>
+                    <div class="stack-pills">
+                        <span class="pill cat-tech">Python</span>
+                        <span class="pill cat-tech">FastAPI</span>
+                        <span class="pill cat-tech">PostgreSQL</span>
+                        <span class="pill cat-tech">Docker</span>
+                        <span class="pill cat-tech">SQLAlchemy</span>
+                    </div>
+                </div>
+
+                <div class="stack-group">
+                    <h3 class="stack-label">Herramientas</h3>
+                    <div class="stack-pills">
+                        <span class="pill cat-educacion">Git</span>
+                        <span class="pill cat-educacion">TTS</span>
+                        <span class="pill cat-educacion">IA generativa</span>
+                        <span class="pill cat-educacion">LaTeX</span>
+                        <span class="pill cat-educacion">matplotlib</span>
+                    </div>
+                </div>
+
+                <div class="stack-group">
+                    <h3 class="stack-label">Clínico</h3>
+                    <div class="stack-pills">
+                        <span class="pill cat-medicina">Neonatología</span>
+                        <span class="pill cat-medicina">PNI</span>
+                        <span class="pill cat-medicina">NRP</span>
+                        <span class="pill cat-medicina">CIE-10</span>
+                        <span class="pill cat-medicina">Curvas de crecimiento</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contacto -->
+        <section id="contacto" class="section contacto">
+            <div class="container">
+                <p class="section-eyebrow">Contacto</p>
+                <h2 class="section-title">Hablemos</h2>
+                <p class="contacto-text">¿Colaboración, proyectos health-tech o simplemente conectar? Escríbeme.</p>
+                <div class="contacto-links">
+                    <a id="email-link" href="#" class="btn btn-primary">
+                        <i class="ph ph-envelope-simple"></i> <span id="email-text"></span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/carlos-alberto-leyva-proenza/" class="btn btn-ghost" target="_blank" rel="noopener">
+                        <i class="ph ph-linkedin-logo"></i> LinkedIn
+                    </a>
+                    <a href="https://github.com/LeyvaProenza" class="btn btn-ghost" target="_blank" rel="noopener">
+                        <i class="ph ph-github-logo"></i> GitHub
+                    </a>
+                    <a href="https://orcid.org/0000-0002-2681-6927" class="btn btn-ghost" target="_blank" rel="noopener">
+                        <i class="ph ph-identification-card"></i> ORCID
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 Carlos Alberto Leyva Proenza. Construido con HTML, CSS y JavaScript vanilla.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

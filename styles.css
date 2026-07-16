@@ -1,0 +1,714 @@
+/* ============================================
+   DESIGN TOKENS
+   ============================================ */
+:root {
+    /* Neutrals */
+    --n-50: #f8fafc;
+    --n-100: #f1f5f9;
+    --n-200: #e2e8f0;
+    --n-300: #cbd5e1;
+    --n-400: #94a3b8;
+    --n-500: #64748b;
+    --n-700: #334155;
+    --n-900: #0f172a;
+
+    /* Category accents */
+    --medicina: #2563eb;
+    --medicina-bg: rgba(37, 99, 235, 0.08);
+    --tech: #059669;
+    --tech-bg: rgba(5, 150, 105, 0.08);
+    --educacion: #d97706;
+    --educacion-bg: rgba(217, 119, 6, 0.08);
+
+    /* Semantic */
+    --bg-primary: var(--n-50);
+    --bg-secondary: #ffffff;
+    --text-primary: var(--n-900);
+    --text-secondary: var(--n-500);
+    --border: var(--n-200);
+
+    /* Typography */
+    --font-display: 'DM Serif Display', Georgia, 'Segoe UI', system-ui, serif;
+    --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+    /* Spacing */
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 32px;
+    --space-2xl: 48px;
+    --space-3xl: 64px;
+    --space-4xl: 96px;
+    --space-5xl: 128px;
+
+    /* Layout */
+    --max-width: 1120px;
+    --header-height: 64px;
+
+    /* Transitions */
+    --ease: cubic-bezier(0.4, 0, 0.2, 1);
+    --duration: 200ms;
+}
+
+/* Dark mode */
+[data-theme="dark"] {
+    --bg-primary: var(--n-900);
+    --bg-secondary: #1e293b;
+    --text-primary: var(--n-50);
+    --text-secondary: var(--n-400);
+    --border: #334155;
+
+    --medicina-bg: rgba(37, 99, 235, 0.15);
+    --tech-bg: rgba(5, 150, 105, 0.15);
+    --educacion-bg: rgba(217, 119, 6, 0.15);
+}
+
+/* ============================================
+   RESET & BASE
+   ============================================ */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--header-height);
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color var(--duration) var(--ease),
+                color var(--duration) var(--ease);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* ============================================
+   LAYOUT
+   ============================================ */
+.container {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
+}
+
+.section {
+    padding: var(--space-4xl) 0;
+}
+
+.section-eyebrow {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-md);
+}
+
+.section-title {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 5vw, 40px);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: var(--space-3xl);
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    height: var(--header-height);
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border);
+    transition: background-color var(--duration) var(--ease),
+                border-color var(--duration) var(--ease);
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
+}
+
+.nav-logo {
+    font-family: var(--font-display);
+    font-size: 20px;
+    color: var(--text-primary);
+}
+
+.nav-links {
+    display: flex;
+    gap: var(--space-xl);
+}
+
+.nav-links a {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    transition: color var(--duration) var(--ease);
+}
+
+.nav-links a:hover {
+    color: var(--text-primary);
+}
+
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: 0;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 18px;
+    transition: color var(--duration) var(--ease),
+                border-color var(--duration) var(--ease);
+}
+
+.theme-toggle:hover {
+    color: var(--text-primary);
+    border-color: var(--text-secondary);
+}
+
+/* ============================================
+   HERO
+   ============================================ */
+.hero {
+    padding-top: calc(var(--header-height) + var(--space-5xl));
+    padding-bottom: var(--space-5xl);
+}
+
+.hero-eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-lg);
+}
+
+.hero-name {
+    font-family: var(--font-display);
+    font-size: clamp(40px, 8vw, 72px);
+    font-weight: 400;
+    line-height: 1.1;
+    margin-bottom: var(--space-lg);
+}
+
+.hero-role {
+    font-size: clamp(16px, 2.5vw, 20px);
+    color: var(--text-secondary);
+    max-width: 560px;
+    margin-bottom: var(--space-sm);
+    line-height: 1.6;
+}
+
+.hero-orcid {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-2xl);
+    line-height: 1.6;
+}
+
+.hero-orcid a {
+    color: var(--medicina);
+    text-decoration: none;
+    transition: opacity var(--duration) var(--ease);
+}
+
+.hero-orcid a:hover {
+    opacity: 0.7;
+}
+
+.hero-actions {
+    display: flex;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: 12px 24px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    transition: all var(--duration) var(--ease);
+}
+
+.btn-primary {
+    background: var(--text-primary);
+    color: var(--bg-primary);
+}
+
+.btn-primary:hover {
+    opacity: 0.85;
+}
+
+.btn-ghost {
+    background: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+}
+
+.btn-ghost:hover {
+    border-color: var(--text-secondary);
+}
+
+/* ============================================
+   PILARES
+   ============================================ */
+.pilares {
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    transition: background-color var(--duration) var(--ease),
+                border-color var(--duration) var(--ease);
+}
+
+.pilares-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-xl);
+}
+
+.pilar {
+    padding: var(--space-xl);
+    border: 1px solid var(--border);
+    border-radius: 0;
+    transition: border-color var(--duration) var(--ease);
+}
+
+.pilar:hover {
+    border-color: var(--text-secondary);
+}
+
+.pilar-icon {
+    font-size: 24px;
+    margin-bottom: var(--space-md);
+}
+
+.pilar h3 {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: var(--space-sm);
+}
+
+.pilar p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Category colors for pilares */
+.pilar-medicina .pilar-icon { color: var(--medicina); }
+.pilar-medicina:hover { border-color: var(--medicina); }
+
+.pilar-tech .pilar-icon { color: var(--tech); }
+.pilar-tech:hover { border-color: var(--tech); }
+
+.pilar-educacion .pilar-icon { color: var(--educacion); }
+.pilar-educacion:hover { border-color: var(--educacion); }
+
+/* ============================================
+   PROYECTOS
+   ============================================ */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+}
+
+.project-card {
+    padding: var(--space-xl);
+    border: 1px solid var(--border);
+    border-radius: 0;
+    transition: border-color var(--duration) var(--ease);
+}
+
+.project-card:hover {
+    border-color: var(--text-secondary);
+}
+
+.project-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-md);
+}
+
+.project-cat {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 0;
+}
+
+.cat-medicina .project-cat {
+    background: var(--medicina-bg);
+    color: var(--medicina);
+}
+
+.cat-tech .project-cat {
+    background: var(--tech-bg);
+    color: var(--tech);
+}
+
+.cat-educacion .project-cat {
+    background: var(--educacion-bg);
+    color: var(--educacion);
+}
+
+.project-cat-private {
+    background: var(--n-100);
+    color: var(--n-400);
+}
+
+[data-theme="dark"] .project-cat-private {
+    background: rgba(148, 163, 184, 0.1);
+    color: var(--n-400);
+}
+
+.project-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    color: var(--text-secondary);
+    font-size: 16px;
+    transition: color var(--duration) var(--ease);
+}
+
+.project-link:hover {
+    color: var(--text-primary);
+}
+
+.project-card h3 {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: var(--space-sm);
+}
+
+.project-card p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--space-md);
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+}
+
+.tag {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 0;
+    letter-spacing: 0.02em;
+}
+
+.cat-medicina .tag {
+    background: var(--medicina-bg);
+    color: var(--medicina);
+}
+
+.cat-tech .tag {
+    background: var(--tech-bg);
+    color: var(--tech);
+}
+
+.cat-educacion .tag {
+    background: var(--educacion-bg);
+    color: var(--educacion);
+}
+
+.tag-private {
+    background: var(--n-100);
+    color: var(--n-400);
+}
+
+[data-theme="dark"] .tag-private {
+    background: rgba(148, 163, 184, 0.1);
+    color: var(--n-400);
+}
+
+.project-private {
+    border-style: dashed;
+}
+
+.project-private:hover {
+    border-color: var(--n-300);
+}
+
+/* ============================================
+   PUBLICACIONES
+   ============================================ */
+.publicaciones {
+    transition: background-color var(--duration) var(--ease);
+}
+
+.pub-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+}
+
+.pub-item {
+    padding: var(--space-lg) var(--space-xl);
+    border-left: 3px solid var(--medicina);
+    background: var(--bg-primary);
+    transition: background-color var(--duration) var(--ease),
+                border-color var(--duration) var(--ease);
+}
+
+[data-theme="dark"] .pub-item {
+    background: var(--bg-secondary);
+}
+
+.pub-meta {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--medicina);
+    margin-bottom: var(--space-sm);
+}
+
+.pub-item h3 {
+    font-family: var(--font-display);
+    font-size: 17px;
+    font-weight: 400;
+    margin-bottom: var(--space-xs);
+    line-height: 1.4;
+}
+
+.pub-item p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.pub-affil {
+    font-size: 12px !important;
+    color: var(--n-400) !important;
+    margin-top: var(--space-xs);
+}
+
+/* ============================================
+   STACK
+   ============================================ */
+.stack-section {
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    transition: background-color var(--duration) var(--ease),
+                border-color var(--duration) var(--ease);
+}
+
+.stack-group {
+    margin-bottom: var(--space-xl);
+}
+
+.stack-group:last-child {
+    margin-bottom: 0;
+}
+
+.stack-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-md);
+}
+
+.stack-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+}
+
+.pill {
+    font-size: 13px;
+    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: 0;
+    border: 1px solid var(--border);
+    transition: background-color var(--duration) var(--ease),
+                border-color var(--duration) var(--ease),
+                color var(--duration) var(--ease);
+}
+
+.pill.cat-medicina {
+    background: var(--medicina-bg);
+    color: var(--medicina);
+    border-color: transparent;
+}
+
+.pill.cat-tech {
+    background: var(--tech-bg);
+    color: var(--tech);
+    border-color: transparent;
+}
+
+.pill.cat-educacion {
+    background: var(--educacion-bg);
+    color: var(--educacion);
+    border-color: transparent;
+}
+
+/* ============================================
+   CONTACTO
+   ============================================ */
+.contacto-text {
+    font-size: 16px;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-2xl);
+    max-width: 480px;
+}
+
+.contacto-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.site-footer {
+    padding: var(--space-2xl) 0;
+    border-top: 1px solid var(--border);
+    transition: border-color var(--duration) var(--ease);
+}
+
+.site-footer p {
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+/* ============================================
+   FADE-IN ANIMATION
+   ============================================ */
+.fade-in {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.4s var(--ease), transform 0.4s var(--ease);
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .fade-in {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+/* Tablet */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .pilares-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section {
+        padding: var(--space-3xl) 0;
+    }
+
+    .hero {
+        padding-top: calc(var(--header-height) + var(--space-3xl));
+        padding-bottom: var(--space-3xl);
+    }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+    .container {
+        padding: 0 var(--space-md);
+    }
+
+    .hero-name {
+        font-size: 36px;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+    }
+
+    .btn {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .contacto-links {
+        flex-direction: column;
+    }
+
+    .contacto-links .btn {
+        width: 100%;
+    }
+}
