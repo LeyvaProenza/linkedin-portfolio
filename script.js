@@ -28,7 +28,7 @@ function setTheme(theme) {
     icon.setAttribute('aria-hidden', 'true');
     const metaTheme = document.getElementById('theme-color');
     if (metaTheme) {
-        metaTheme.content = theme === 'dark' ? '#0f172a' : '#f8fafc';
+        metaTheme.content = theme === 'dark' ? '#0c1615' : '#f6faf9';
     }
 }
 

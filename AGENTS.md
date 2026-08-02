@@ -16,9 +16,10 @@ Static portfolio site (Spanish content) for Carlos Leyva Proenza, built with van
 
 - All UI copy and git commit messages are in **Spanish** — match this for new content and commits.
 - Styling uses CSS custom properties (design tokens) in `:root`, overridden by `[data-theme="dark"]`. Dark mode is persisted to `localStorage` as `theme`; `script.js` sets `data-theme` on `<html>`.
-- Accent colors come from the category system: `cat-medicina` (blue), `cat-tech` (green), `cat-educacion` (amber). Reuse these classes for badges, tags, and pills instead of introducing new colors.
-- Accessibility is a working convention, preserve it: skip link, `:focus-visible` outline, `prefers-reduced-motion` handling (CSS disables fade-in; `script.js` disconnects the observer).
-- External assets load from CDNs (Google Fonts: DM Sans / DM Serif Display; Phosphor Icons via unpkg) — there are no local fallbacks, and icons have no offline copy. Don't vendor them unless asked.
+- All accent color comes from a **single unified accent** (`--accent`, `--accent-hover`, `--accent-bg`, `--accent-contrast`, defined in `:root` and redefined in `[data-theme="dark"]`). The `.cat-medicina`/`.cat-tech`/`.cat-educacion` and `.pilar-*` classes still exist in the HTML as semantic labels but no longer drive any colors — style accents through the token, never per-category colors.
+- The hero signature is `.hero-signature` (decorative SVG growth-curve, `aria-hidden`, no `data-i18n`); it draws via CSS animation gated behind `prefers-reduced-motion`.
+- Accessibility is a working convention, preserve it: skip link, `:focus-visible` outline, `prefers-reduced-motion` handling (CSS disables fade-in and the signature; `script.js` disconnects the observer).
+- External assets load from CDNs (Google Fonts: Fraunces display / Inter body / JetBrains Mono for eyebrows and data labels; Phosphor Icons via unpkg) — there are no local fallbacks, and icons have no offline copy. Don't vendor them unless asked.
 
 ## `i18n.js` wiring (bilingual ES/EN)
 

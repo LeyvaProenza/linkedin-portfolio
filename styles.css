@@ -4,22 +4,20 @@
 :root {
     color-scheme: light;
     /* Neutrals */
-    --n-50: #f8fafc;
-    --n-100: #f1f5f9;
-    --n-200: #e2e8f0;
-    --n-300: #cbd5e1;
-    --n-400: #94a3b8;
-    --n-500: #64748b;
-    --n-700: #334155;
-    --n-900: #0f172a;
+    --n-50: #f6faf9;
+    --n-100: #edf3f1;
+    --n-200: #dfe8e6;
+    --n-300: #c2d2cf;
+    --n-400: #93a8a5;
+    --n-500: #5b6f6d;
+    --n-700: #2e4341;
+    --n-900: #0f1f1e;
 
-    /* Category accents */
-    --medicina: #2563eb;
-    --medicina-bg: rgba(37, 99, 235, 0.08);
-    --tech: #059669;
-    --tech-bg: rgba(5, 150, 105, 0.08);
-    --educacion: #d97706;
-    --educacion-bg: rgba(217, 119, 6, 0.08);
+    /* Single accent (unified) */
+    --accent: #0e8a7c;
+    --accent-hover: #0b6e63;
+    --accent-bg: rgba(14, 138, 124, 0.08);
+    --accent-contrast: #ffffff;
 
     /* Semantic */
     --bg-primary: var(--n-50);
@@ -29,8 +27,12 @@
     --border: var(--n-200);
 
     /* Typography */
-    --font-display: 'DM Serif Display', Georgia, 'Segoe UI', system-ui, serif;
-    --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Consolas, monospace;
+
+    /* Radii */
+    --radius: 8px;
 
     /* Spacing */
     --space-xs: 4px;
@@ -55,15 +57,16 @@
 /* Dark mode */
 [data-theme="dark"] {
     color-scheme: dark;
-    --bg-primary: var(--n-900);
-    --bg-secondary: #1e293b;
-    --text-primary: var(--n-50);
-    --text-secondary: var(--n-400);
-    --border: #334155;
+    --bg-primary: #0c1615;
+    --bg-secondary: #12201e;
+    --text-primary: #e7efed;
+    --text-secondary: #93a8a5;
+    --border: #223330;
 
-    --medicina-bg: rgba(37, 99, 235, 0.15);
-    --tech-bg: rgba(5, 150, 105, 0.15);
-    --educacion-bg: rgba(217, 119, 6, 0.15);
+    --accent: #2bb5a5;
+    --accent-hover: #3fc9b9;
+    --accent-bg: rgba(43, 181, 165, 0.12);
+    --accent-contrast: #0c1615;
 }
 
 /* ============================================
@@ -125,12 +128,12 @@ img {
 }
 
 .section-eyebrow {
-    font-family: var(--font-body);
+    font-family: var(--font-mono);
     font-size: 12px;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--text-secondary);
+    color: var(--accent);
     margin-bottom: var(--space-md);
 }
 
@@ -208,7 +211,7 @@ img {
     height: 36px;
     background: none;
     border: 1px solid var(--border);
-    border-radius: 0;
+    border-radius: var(--radius);
     color: var(--text-secondary);
     cursor: pointer;
     font-size: 18px;
@@ -249,11 +252,12 @@ img {
 }
 
 .hero-eyebrow {
+    font-family: var(--font-mono);
     font-size: 12px;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--text-secondary);
+    color: var(--accent);
     margin-bottom: var(--space-lg);
 }
 
@@ -282,13 +286,44 @@ img {
 }
 
 .hero-orcid a {
-    color: var(--medicina);
+    color: var(--accent);
     text-decoration: none;
     transition: opacity var(--duration) var(--ease);
 }
 
 .hero-orcid a:hover {
     opacity: 0.7;
+}
+
+/* Hero signature: growth-curve line */
+.hero-signature {
+    display: block;
+    width: min(480px, 100%);
+    height: auto;
+    margin: var(--space-lg) 0 var(--space-2xl);
+}
+
+.hero-signature path {
+    stroke: var(--accent);
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-dasharray: 700;
+    stroke-dashoffset: 700;
+    animation: draw-curve 1.6s var(--ease) forwards;
+}
+
+.hero-signature circle {
+    fill: var(--accent);
+    opacity: 0;
+    animation: fade-node 0.4s var(--ease) 1.4s forwards;
+}
+
+@keyframes draw-curve {
+    to { stroke-dashoffset: 0; }
+}
+
+@keyframes fade-node {
+    to { opacity: 1; }
 }
 
 /* ============================================
@@ -308,7 +343,7 @@ img {
 }
 
 .acerca-block:hover {
-    border-left-color: var(--medicina);
+    border-left-color: var(--accent);
 }
 
 .acerca-block strong {
@@ -341,7 +376,7 @@ img {
     font-size: 14px;
     font-weight: 500;
     border: none;
-    border-radius: 0;
+    border-radius: var(--radius);
     cursor: pointer;
     transition: background-color var(--duration) var(--ease),
                 color var(--duration) var(--ease),
@@ -350,8 +385,8 @@ img {
 }
 
 .btn-primary {
-    background: var(--text-primary);
-    color: var(--bg-primary);
+    background: var(--accent);
+    color: var(--accent-contrast);
 }
 
 .btn-primary:hover {
@@ -388,7 +423,7 @@ img {
 .pilar {
     padding: var(--space-xl);
     border: 1px solid var(--border);
-    border-radius: 0;
+    border-radius: var(--radius);
     transition: border-color var(--duration) var(--ease);
 }
 
@@ -398,6 +433,7 @@ img {
 
 .pilar-icon {
     font-size: 24px;
+    color: var(--accent);
     margin-bottom: var(--space-md);
 }
 
@@ -414,16 +450,6 @@ img {
     line-height: 1.6;
 }
 
-/* Category colors for pilares */
-.pilar-medicina .pilar-icon { color: var(--medicina); }
-.pilar-medicina:hover { border-color: var(--medicina); }
-
-.pilar-tech .pilar-icon { color: var(--tech); }
-.pilar-tech:hover { border-color: var(--tech); }
-
-.pilar-educacion .pilar-icon { color: var(--educacion); }
-.pilar-educacion:hover { border-color: var(--educacion); }
-
 /* ============================================
    PROYECTOS
    ============================================ */
@@ -436,7 +462,7 @@ img {
 .project-card {
     padding: var(--space-xl);
     border: 1px solid var(--border);
-    border-radius: 0;
+    border-radius: var(--radius);
     transition: border-color var(--duration) var(--ease);
 }
 
@@ -457,22 +483,9 @@ img {
     letter-spacing: 0.05em;
     text-transform: uppercase;
     padding: 4px 12px;
-    border-radius: 0;
-}
-
-.cat-medicina .project-cat {
-    background: var(--medicina-bg);
-    color: var(--medicina);
-}
-
-.cat-tech .project-cat {
-    background: var(--tech-bg);
-    color: var(--tech);
-}
-
-.cat-educacion .project-cat {
-    background: var(--educacion-bg);
-    color: var(--educacion);
+    border-radius: var(--radius);
+    background: var(--accent-bg);
+    color: var(--accent);
 }
 
 .project-cat-private {
@@ -524,23 +537,10 @@ img {
     font-size: 11px;
     font-weight: 500;
     padding: 4px 10px;
-    border-radius: 0;
+    border-radius: var(--radius);
     letter-spacing: 0.02em;
-}
-
-.cat-medicina .tag {
-    background: var(--medicina-bg);
-    color: var(--medicina);
-}
-
-.cat-tech .tag {
-    background: var(--tech-bg);
-    color: var(--tech);
-}
-
-.cat-educacion .tag {
-    background: var(--educacion-bg);
-    color: var(--educacion);
+    background: var(--accent-bg);
+    color: var(--accent);
 }
 
 .tag-private {
@@ -558,7 +558,7 @@ img {
 }
 
 .project-private:hover {
-    border-color: var(--n-300);
+    border-color: var(--border);
 }
 
 /* ============================================
@@ -576,7 +576,8 @@ img {
 
 .pub-item {
     padding: var(--space-lg) var(--space-xl);
-    border-left: 3px solid var(--medicina);
+    border-left: 3px solid var(--accent);
+    border-radius: var(--radius);
     background: var(--bg-primary);
     transition: background-color var(--duration) var(--ease),
                 border-color var(--duration) var(--ease);
@@ -587,11 +588,12 @@ img {
 }
 
 .pub-meta {
+    font-family: var(--font-mono);
     font-size: 11px;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: 0.05em;
     text-transform: uppercase;
-    color: var(--medicina);
+    color: var(--accent);
     margin-bottom: var(--space-sm);
 }
 
@@ -618,7 +620,8 @@ img {
 .pub-en-cta {
     margin-top: var(--space-lg);
     padding: var(--space-xl);
-    border-left: 3px solid var(--medicina);
+    border-left: 3px solid var(--accent);
+    border-radius: var(--radius);
     background: var(--bg-secondary);
     display: flex;
     flex-direction: column;
@@ -653,11 +656,12 @@ img {
 }
 
 .stack-label {
+    font-family: var(--font-mono);
     font-size: 12px;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--text-secondary);
+    color: var(--accent);
     margin-bottom: var(--space-md);
 }
 
@@ -671,36 +675,20 @@ img {
     font-size: 13px;
     font-weight: 500;
     padding: 6px 14px;
-    border-radius: 0;
-    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    border: 1px solid transparent;
+    background: var(--accent-bg);
+    color: var(--accent);
     transition: background-color var(--duration) var(--ease),
                 border-color var(--duration) var(--ease),
                 color var(--duration) var(--ease);
-}
-
-.pill.cat-medicina {
-    background: var(--medicina-bg);
-    color: var(--medicina);
-    border-color: transparent;
-}
-
-.pill.cat-tech {
-    background: var(--tech-bg);
-    color: var(--tech);
-    border-color: transparent;
-}
-
-.pill.cat-educacion {
-    background: var(--educacion-bg);
-    color: var(--educacion);
-    border-color: transparent;
 }
 
 /* ============================================
    CONTACTO
    ============================================ */
 .contacto {
-    background: var(--medicina-bg);
+    background: var(--accent-bg);
     transition: background-color var(--duration) var(--ease);
 }
 
@@ -753,7 +741,7 @@ img {
 }
 
 :focus-visible {
-    outline: 2px solid var(--medicina);
+    outline: 2px solid var(--accent);
     outline-offset: 2px;
 }
 
@@ -780,6 +768,19 @@ img {
 
     .nav-links {
         transition: none;
+    }
+
+    .hero-signature path,
+    .hero-signature circle {
+        animation: none;
+    }
+
+    .hero-signature path {
+        stroke-dashoffset: 0;
+    }
+
+    .hero-signature circle {
+        opacity: 1;
     }
 }
 
