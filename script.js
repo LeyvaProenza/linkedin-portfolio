@@ -25,6 +25,11 @@ function setTheme(theme) {
     localStorage.setItem('theme', theme);
     const icon = toggle.querySelector('i');
     icon.className = theme === 'dark' ? 'ph ph-sun' : 'ph ph-moon';
+    icon.setAttribute('aria-hidden', 'true');
+    const metaTheme = document.getElementById('theme-color');
+    if (metaTheme) {
+        metaTheme.content = theme === 'dark' ? '#0f172a' : '#f8fafc';
+    }
 }
 
 setTheme(getPreferredTheme());
@@ -33,6 +38,66 @@ toggle.addEventListener('click', () => {
     const current = root.getAttribute('data-theme');
     setTheme(current === 'dark' ? 'light' : 'dark');
 });
+
+// Language toggle (i18n.js provides applyLang)
+const langToggle = document.getElementById('lang-toggle');
+if (langToggle) {
+    langToggle.addEventListener('click', () => {
+        const current = document.documentElement.lang || 'es';
+        applyLang(current === 'es' ? 'en' : 'es');
+    });
+}
+
+// Project links (URLs for the cards with arrows)
+const projectLinks = {
+    'nrp-trainer': 'https://github.com/LeyvaProenza',
+    'neocalc': 'https://github.com/LeyvaProenza/Neocalc',
+    'material-docente': 'https://github.com/LeyvaProenza/voice-tts-gateway'
+};
+
+document.querySelectorAll('[data-project]').forEach(link => {
+    const url = projectLinks[link.dataset.project];
+    if (url) link.href = url;
+});
+
+// Mobile menu
+const menuToggle = document.getElementById('menu-toggle');
+const navLinks = document.getElementById('nav-links');
+
+if (menuToggle && navLinks) {
+    let menuOpen = false;
+
+    function setMenu(open) {
+        menuOpen = open;
+        navLinks.classList.toggle('open', open);
+        menuToggle.setAttribute('aria-expanded', String(open));
+        const icon = menuToggle.querySelector('i');
+        if (icon) {
+            icon.className = open ? 'ph ph-x' : 'ph ph-list';
+            icon.setAttribute('aria-hidden', 'true');
+        }
+        if (open) {
+            const firstLink = navLinks.querySelector('a');
+            if (firstLink) firstLink.focus();
+        } else if (navLinks.contains(document.activeElement)) {
+            menuToggle.focus();
+        }
+    }
+
+    menuToggle.addEventListener('click', () => setMenu(!menuOpen));
+
+    navLinks.addEventListener('click', (e) => {
+        if (e.target.closest('a')) setMenu(false);
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && menuOpen) setMenu(false);
+    });
+
+    window.matchMedia('(min-width: 769px)').addEventListener('change', (e) => {
+        if (e.matches) setMenu(false);
+    });
+}
 
 // Fade-in on scroll
 const fadeElements = document.querySelectorAll('.pilar, .project-card, .stack-group, .hero-actions, .contacto-links');
@@ -60,19 +125,21 @@ if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
 
 // Scroll-spy: highlight active nav link
 const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-links a');
+const navLinkEls = document.querySelectorAll('.nav-links a');
 
-function highlightNav() {
-    let current = '';
-    sections.forEach(s => {
-        const top = s.offsetTop - 100;
-        if (window.scrollY >= top) current = s.id;
-    });
-    navLinks.forEach(a => {
-        a.style.color = a.getAttribute('href') === '#' + current
-            ? 'var(--text-primary)'
-            : 'var(--text-secondary)';
-    });
-}
+const navObserver = new IntersectionObserver(
+    (entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                navLinkEls.forEach(a => {
+                    a.style.color = a.getAttribute('href') === '#' + entry.target.id
+                        ? 'var(--text-primary)'
+                        : 'var(--text-secondary)';
+                });
+            }
+        });
+    },
+    { threshold: 0.3, rootMargin: '-64px 0px 0px 0px' }
+);
 
-window.addEventListener('scroll', highlightNav, { passive: true });
+sections.forEach(s => navObserver.observe(s));

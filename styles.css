@@ -2,6 +2,7 @@
    DESIGN TOKENS
    ============================================ */
 :root {
+    color-scheme: light;
     /* Neutrals */
     --n-50: #f8fafc;
     --n-100: #f1f5f9;
@@ -53,6 +54,7 @@
 
 /* Dark mode */
 [data-theme="dark"] {
+    color-scheme: dark;
     --bg-primary: var(--n-900);
     --bg-secondary: #1e293b;
     --text-primary: var(--n-50);
@@ -75,6 +77,10 @@
     padding: 0;
 }
 
+[hidden] {
+    display: none !important;
+}
+
 html {
     scroll-behavior: smooth;
     scroll-padding-top: var(--header-height);
@@ -88,6 +94,8 @@ body {
     background-color: var(--bg-primary);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
     transition: background-color var(--duration) var(--ease),
                 color var(--duration) var(--ease);
 }
@@ -132,6 +140,7 @@ img {
     font-weight: 400;
     line-height: 1.2;
     margin-bottom: var(--space-3xl);
+    text-wrap: balance;
 }
 
 /* ============================================
@@ -146,6 +155,8 @@ img {
     height: var(--header-height);
     background: var(--bg-secondary);
     border-bottom: 1px solid var(--border);
+    padding-left: env(safe-area-inset-left, 0);
+    padding-right: env(safe-area-inset-right, 0);
     transition: background-color var(--duration) var(--ease),
                 border-color var(--duration) var(--ease);
 }
@@ -182,11 +193,18 @@ img {
     color: var(--text-primary);
 }
 
-.theme-toggle {
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.theme-toggle,
+.lang-toggle,
+.menu-toggle {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 36px;
     height: 36px;
     background: none;
     border: 1px solid var(--border);
@@ -198,7 +216,26 @@ img {
                 border-color var(--duration) var(--ease);
 }
 
-.theme-toggle:hover {
+.theme-toggle,
+.menu-toggle {
+    width: 36px;
+}
+
+.lang-toggle {
+    padding: 0 10px;
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+
+#menu-toggle {
+    display: none;
+}
+
+.theme-toggle:hover,
+.lang-toggle:hover,
+.menu-toggle:hover {
     color: var(--text-primary);
     border-color: var(--text-secondary);
 }
@@ -226,6 +263,7 @@ img {
     font-weight: 400;
     line-height: 1.1;
     margin-bottom: var(--space-lg);
+    text-wrap: balance;
 }
 
 .hero-role {
@@ -285,13 +323,6 @@ img {
     margin: 0;
 }
 
-.acerca-cierre {
-    font-family: var(--font-body);
-    font-weight: 500;
-    color: var(--text-primary) !important;
-    font-style: italic;
-}
-
 .hero-actions {
     display: flex;
     gap: var(--space-md);
@@ -312,7 +343,10 @@ img {
     border: none;
     border-radius: 0;
     cursor: pointer;
-    transition: all var(--duration) var(--ease);
+    transition: background-color var(--duration) var(--ease),
+                color var(--duration) var(--ease),
+                opacity var(--duration) var(--ease),
+                border-color var(--duration) var(--ease);
 }
 
 .btn-primary {
@@ -581,6 +615,24 @@ img {
     margin-top: var(--space-xs);
 }
 
+.pub-en-cta {
+    margin-top: var(--space-lg);
+    padding: var(--space-xl);
+    border-left: 3px solid var(--medicina);
+    background: var(--bg-secondary);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-md);
+    transition: background-color var(--duration) var(--ease),
+                border-color var(--duration) var(--ease);
+}
+
+.pub-en-cta p {
+    font-size: 15px;
+    color: var(--text-secondary);
+}
+
 /* ============================================
    STACK
    ============================================ */
@@ -647,6 +699,11 @@ img {
 /* ============================================
    CONTACTO
    ============================================ */
+.contacto {
+    background: var(--medicina-bg);
+    transition: background-color var(--duration) var(--ease);
+}
+
 .contacto-text {
     font-size: 16px;
     color: var(--text-secondary);
@@ -675,6 +732,32 @@ img {
 }
 
 /* ============================================
+   FOCUS & SKIP LINK
+   ============================================ */
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: var(--space-md);
+    z-index: 200;
+    padding: 8px 16px;
+    background: var(--text-primary);
+    color: var(--bg-primary);
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 500;
+    transition: top var(--duration) var(--ease);
+}
+
+.skip-link:focus {
+    top: var(--space-sm);
+}
+
+:focus-visible {
+    outline: 2px solid var(--medicina);
+    outline-offset: 2px;
+}
+
+/* ============================================
    FADE-IN ANIMATION
    ============================================ */
 .fade-in {
@@ -694,6 +777,10 @@ img {
         transform: none;
         transition: none;
     }
+
+    .nav-links {
+        transition: none;
+    }
 }
 
 /* ============================================
@@ -702,8 +789,40 @@ img {
 
 /* Tablet */
 @media (max-width: 768px) {
+    #menu-toggle {
+        display: flex;
+    }
+
     .nav-links {
-        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 150;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: var(--space-2xl);
+        padding-top: calc(var(--header-height) + var(--space-3xl));
+        background: var(--bg-secondary);
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity var(--duration) var(--ease),
+                    visibility var(--duration) var(--ease);
+    }
+
+    .nav-links.open {
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .nav-links a {
+        font-size: 18px;
+    }
+
+    #menu-toggle {
+        position: relative;
+        z-index: 200;
     }
 
     .pilares-grid {

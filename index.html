@@ -3,8 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Carlos Alberto Leyva Proenza — Médico neonatólogo, docente ESPOCH y desarrollador. Portfolio multidisciplinario.">
+    <meta name="description" data-lang-meta="desc" content="Carlos Alberto Leyva Proenza — Médico neonatólogo, docente ESPOCH y desarrollador. Portfolio multidisciplinario.">
+    <meta name="theme-color" id="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
     <title>Carlos A. Leyva Proenza — Portfolio</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20fill='%230f172a'/%3E%3Ctext%20x='16'%20y='22'%20font-family='Georgia,%20serif'%20font-size='14'%20font-weight='bold'%20fill='%23f8fafc'%20text-anchor='middle'%3ECL%3C/text%3E%3C/svg%3E">
+    <meta property="og:type" content="profile">
+    <meta property="og:url" content="https://github.com/LeyvaProenza/linkedin-portfolio">
+    <meta property="og:title" data-lang-meta="title" content="Carlos A. Leyva Proenza — Portfolio">
+    <meta property="og:description" data-lang-meta="desc" content="Carlos Alberto Leyva Proenza — Médico neonatólogo, docente ESPOCH y desarrollador. Portfolio multidisciplinario.">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" data-lang-meta="title" content="Carlos A. Leyva Proenza — Portfolio">
+    <meta name="twitter:description" data-lang-meta="desc" content="Carlos Alberto Leyva Proenza — Médico neonatólogo, docente ESPOCH y desarrollador. Portfolio multidisciplinario.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
@@ -12,37 +24,44 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <a href="#main-content" class="skip-link" data-i18n="skip.link">Saltar al contenido principal</a>
     <header class="site-header">
         <nav class="nav">
             <a href="#hero" class="nav-logo">CL</a>
-            <div class="nav-links">
-                <a href="#pilares">Pilares</a>
-                <a href="#proyectos">Proyectos</a>
-                <a href="#stack">Stack</a>
-                <a href="#contacto">Contacto</a>
+            <div class="nav-links" id="nav-links">
+                <a href="#pilares" data-i18n="nav.pilares">Pilares</a>
+                <a href="#proyectos" data-i18n="nav.proyectos">Proyectos</a>
+                <a href="#stack" data-i18n="nav.stack">Stack</a>
+                <a href="#contacto" data-i18n="nav.contacto">Contacto</a>
             </div>
-            <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar tema">
-                <i class="ph ph-moon"></i>
-            </button>
+            <div class="nav-actions">
+                <button class="lang-toggle" id="lang-toggle" data-i18n-aria="aria.lang" aria-label="Cambiar idioma">EN</button>
+                <button class="theme-toggle" id="theme-toggle" data-i18n-aria="aria.theme" aria-label="Cambiar tema">
+                    <i class="ph ph-moon" aria-hidden="true"></i>
+                </button>
+                <button class="menu-toggle" id="menu-toggle" data-i18n-aria="aria.menu" aria-label="Menú de navegación" aria-controls="nav-links" aria-expanded="false">
+                    <i class="ph ph-list" aria-hidden="true"></i>
+                </button>
+            </div>
         </nav>
     </header>
 
-    <main>
+    <main id="main-content">
         <!-- Hero -->
         <section id="hero" class="hero">
             <div class="container">
-                <p class="hero-eyebrow">Médico / Tecnología / Educación</p>
+                <p class="hero-eyebrow" data-i18n="hero.eyebrow">Médico / Tecnología / Educación</p>
                 <h1 class="hero-name">Carlos Alberto<br>Leyva Proenza</h1>
-                <p class="hero-role">Médico neonatólogo<br>
+                <p class="hero-role" data-i18n-html="hero.role">Médico neonatólogo<br>
                 Docente · <strong>ESPOCH</strong><br>
                 Médico Tratante · <strong>Hospital General IESS Riobamba</strong></p>
                 <p class="hero-orcid">
-                    <i class="ph ph-identification-card"></i>
+                    <i class="ph ph-identification-card" aria-hidden="true"></i>
                     <a href="https://orcid.org/0000-0002-2681-6927" target="_blank" rel="noopener">ORCID 0000-0002-2681-6927</a>
                 </p>
                 <div class="hero-actions">
-                    <a href="#contacto" class="btn btn-primary">Contacto</a>
-                    <a href="#proyectos" class="btn btn-ghost">Ver proyectos</a>
+                    <a href="#contacto" class="btn btn-primary" data-i18n="hero.cta.contacto">Contacto</a>
+                    <a href="#proyectos" class="btn btn-ghost" data-i18n="hero.cta.proyectos">Ver proyectos</a>
                 </div>
             </div>
         </section>
@@ -50,16 +69,16 @@
         <!-- Acerca de -->
         <section id="acerca-de" class="section acerca">
             <div class="container">
-                <p class="section-eyebrow">Acerca de</p>
+                <p class="section-eyebrow" data-i18n="acerca.eyebrow">Acerca de</p>
                 <div class="acerca-content">
                     <div class="acerca-block">
-                        <p>Médico neonatólogo con más de <strong>19 años de experiencia</strong> entre el sector público y la docencia universitaria. Actualmente soy Médico Tratante en el servicio de Neonatología del Hospital General IESS Riobamba y docente de la cátedra de Pediatría en la Facultad de Salud Pública, Escuela de Medicina de la ESPOCH.</p>
+                        <p data-i18n-html="acerca.p1">Médico neonatólogo con más de <strong>19 años de experiencia</strong> entre el sector público y la docencia universitaria. Actualmente soy Médico Tratante en el servicio de Neonatología del Hospital General IESS Riobamba y docente de la cátedra de Pediatría en la Facultad de Salud Pública, Escuela de Medicina de la ESPOCH.</p>
                     </div>
                     <div class="acerca-block">
-                        <p>En el hospital manejo directamente los casos más exigentes del recién nacido crítico, desde la reanimación avanzada hasta patologías complejas. En la universidad combino la docencia con la investigación: más de <strong>13 publicaciones</strong> en revistas indexadas sobre neonatología, pediatría, salud pública y epidemiología.</p>
+                        <p data-i18n-html="acerca.p2">En el hospital manejo directamente los casos más exigentes del recién nacido crítico, desde la reanimación avanzada hasta patologías complejas. En la universidad combino la docencia con la investigación: más de <strong>13 publicaciones</strong> en revistas indexadas sobre neonatología, pediatría, salud pública y epidemiología.</p>
                     </div>
                     <div class="acerca-block">
-                        <p>También desarrollo herramientas tecnológicas para uso clínico, pensadas para apoyar decisiones más precisas y una formación médica basada en evidencia.</p>
+                        <p data-i18n-html="acerca.p3">También desarrollo herramientas tecnológicas para uso clínico, pensadas para apoyar decisiones más precisas y una formación médica basada en evidencia.</p>
                     </div>
                 </div>
             </div>
@@ -68,23 +87,23 @@
         <!-- Pilares -->
         <section id="pilares" class="section pilares">
             <div class="container">
-                <p class="section-eyebrow">Lo que hago</p>
-                <h2 class="section-title">Medicina, tecnología y educación</h2>
+                <p class="section-eyebrow" data-i18n="pilares.eyebrow">Lo que hago</p>
+                <h2 class="section-title" data-i18n="pilares.title">Medicina, tecnología y educación</h2>
                 <div class="pilares-grid">
                     <article class="pilar pilar-medicina">
-                        <div class="pilar-icon"><i class="ph ph-stethoscope"></i></div>
-                        <h3>Medicina</h3>
-                        <p>Neonatología clínica en Hospital General IESS Riobamba. Reanimación neonatal (NRP 9.ª ed.), manejo del ductus arterioso permeable, cuidados del recién nacido.</p>
+                        <div class="pilar-icon"><i class="ph ph-stethoscope" aria-hidden="true"></i></div>
+                        <h3 data-i18n="pilares.medicina.title">Medicina</h3>
+                        <p data-i18n="pilares.medicina.desc">Neonatología clínica en Hospital General IESS Riobamba. Reanimación neonatal (NRP 9.ª ed.), manejo del ductus arterioso permeable, cuidados del recién nacido.</p>
                     </article>
                     <article class="pilar pilar-tech">
-                        <div class="pilar-icon"><i class="ph ph-code"></i></div>
-                        <h3>Tecnología</h3>
-                        <p>Construyo aplicaciones clínicas con Python, React, TypeScript, FastAPI y PostgreSQL. Automatización de procesos hospitalarios, IA generativa y análisis de datos.</p>
+                        <div class="pilar-icon"><i class="ph ph-code" aria-hidden="true"></i></div>
+                        <h3 data-i18n="pilares.tech.title">Tecnología</h3>
+                        <p data-i18n="pilares.tech.desc">Construyo aplicaciones clínicas con Python, React, TypeScript, FastAPI y PostgreSQL. Automatización de procesos hospitalarios, IA generativa y análisis de datos.</p>
                     </article>
                     <article class="pilar pilar-educacion">
-                        <div class="pilar-icon"><i class="ph ph-graduation-cap"></i></div>
-                        <h3>Educación</h3>
-                        <p>Docente en la Escuela de Medicina, Facultad de Salud Pública de la ESPOCH. Creación de infografías interactivas, videos educativos con TTS y material basado en evidencia.</p>
+                        <div class="pilar-icon"><i class="ph ph-graduation-cap" aria-hidden="true"></i></div>
+                        <h3 data-i18n="pilares.edu.title">Educación</h3>
+                        <p data-i18n="pilares.edu.desc">Docente en la Escuela de Medicina, Facultad de Salud Pública de la ESPOCH. Creación de infografías interactivas, videos educativos con TTS y material basado en evidencia.</p>
                     </article>
                 </div>
             </div>
@@ -93,18 +112,18 @@
         <!-- Proyectos -->
         <section id="proyectos" class="section proyectos">
             <div class="container">
-                <p class="section-eyebrow">Proyectos</p>
-                <h2 class="section-title">Lo que he construido</h2>
+                <p class="section-eyebrow" data-i18n="proyectos.eyebrow">Proyectos</p>
+                <h2 class="section-title" data-i18n="proyectos.title">Lo que he construido</h2>
 
                 <div class="projects-grid">
                     <!-- NRP-Trainer -->
                     <article class="project-card cat-medicina">
                         <div class="project-header">
-                            <span class="project-cat">Medicina</span>
-                            <a href="#" class="project-link" aria-label="Ver NRP-Trainer"><i class="ph ph-arrow-up-right"></i></a>
+                            <span class="project-cat" data-i18n="cat.medicina">Medicina</span>
+                            <a href="#" class="project-link" data-project="nrp-trainer" data-i18n-aria="aria.nrp" aria-label="Ver NRP-Trainer"><i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
                         </div>
                         <h3>NRP-Trainer</h3>
-                        <p>Guía interactiva de reanimación neonatal, NRP 9.ª edición. Diagrama SVG, simulador de casos clínicos, calculadora de dosis.</p>
+                        <p data-i18n="proyectos.nrp.desc">Guía interactiva de reanimación neonatal, NRP 9.ª edición. Diagrama SVG, simulador de casos clínicos, calculadora de dosis.</p>
                         <div class="project-tags">
                             <span class="tag cat-medicina">HTML</span>
                             <span class="tag cat-medicina">CSS</span>
@@ -116,11 +135,11 @@
                     <!-- Neocalc -->
                     <article class="project-card cat-medicina">
                         <div class="project-header">
-                            <span class="project-cat">Medicina</span>
-                            <a href="#" class="project-link" aria-label="Ver Neocalc"><i class="ph ph-arrow-up-right"></i></a>
+                            <span class="project-cat" data-i18n="cat.medicina">Medicina</span>
+                            <a href="#" class="project-link" data-project="neocalc" data-i18n-aria="aria.neocalc" aria-label="Ver Neocalc IESS"><i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
                         </div>
                         <h3>Neocalc IESS</h3>
-                        <p>Hub de cálculos clínicos de precisión para neonatología y pediatría. Modo oscuro, responsive, sin dependencias externas.</p>
+                        <p data-i18n="proyectos.neocalc.desc">Hub de cálculos clínicos de precisión para neonatología y pediatría. Modo oscuro, responsive, sin dependencias externas.</p>
                         <div class="project-tags">
                             <span class="tag cat-medicina">HTML</span>
                             <span class="tag cat-medicina">CSS</span>
@@ -131,11 +150,10 @@
                     <!-- Historia -->
                     <article class="project-card cat-tech">
                         <div class="project-header">
-                            <span class="project-cat">Tecnología</span>
-                            <a href="#" class="project-link" aria-label="Ver Historia Clínica"><i class="ph ph-arrow-up-right"></i></a>
+                            <span class="project-cat" data-i18n="cat.tech">Tecnología</span>
                         </div>
                         <h3>Historia Clínica Pediátrica</h3>
-                        <p>Sistema web completo para registro y consulta de historias clínicas. Vacunación, desarrollo, curvas de crecimiento.</p>
+                        <p data-i18n="proyectos.historia.desc">Sistema web completo para registro y consulta de historias clínicas. Vacunación, desarrollo, curvas de crecimiento.</p>
                         <div class="project-tags">
                             <span class="tag cat-tech">FastAPI</span>
                             <span class="tag cat-tech">React</span>
@@ -148,10 +166,11 @@
                     <!-- Docencia -->
                     <article class="project-card cat-educacion">
                         <div class="project-header">
-                            <span class="project-cat">Educación</span>
+                            <span class="project-cat" data-i18n="cat.educacion">Educación</span>
+                            <a href="#" class="project-link" data-project="material-docente" data-i18n-aria="aria.docente" aria-label="Ver Material Docente"><i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
                         </div>
                         <h3>Material Docente</h3>
-                        <p>Infografías interactivas de neonatología, generación de audio con TTS, videos educativos con narración automatizada.</p>
+                        <p data-i18n="proyectos.docente.desc">Infografías interactivas de neonatología, generación de audio con TTS, videos educativos con narración automatizada.</p>
                         <div class="project-tags">
                             <span class="tag cat-educacion">Python</span>
                             <span class="tag cat-educacion">TTS</span>
@@ -162,24 +181,24 @@
                     <!-- App privada 1 -->
                     <article class="project-card project-private">
                         <div class="project-header">
-                            <span class="project-cat project-cat-private">Próximamente</span>
+                            <span class="project-cat project-cat-private" data-i18n="cat.privado">Próximamente</span>
                         </div>
-                        <h3>App Clínica</h3>
-                        <p>Herramienta clínica en desarrollo. Diseñada para resolver problemas específicos del día a día en neonatología.</p>
+                        <h3 data-i18n="proyectos.app.title">App Clínica</h3>
+                        <p data-i18n="proyectos.app.desc">Herramienta clínica en desarrollo. Diseñada para resolver problemas específicos del día a día en neonatología.</p>
                         <div class="project-tags">
-                            <span class="tag tag-private">En desarrollo</span>
+                            <span class="tag tag-private" data-i18n="tag.desarrollo">En desarrollo</span>
                         </div>
                     </article>
 
                     <!-- App privada 2 -->
                     <article class="project-card project-private">
                         <div class="project-header">
-                            <span class="project-cat project-cat-private">Próximamente</span>
+                            <span class="project-cat project-cat-private" data-i18n="cat.privado">Próximamente</span>
                         </div>
-                        <h3>Plataforma Educativa</h3>
-                        <p>Plataforma de educación médica interactiva. Próximamente disponible.</p>
+                        <h3 data-i18n="proyectos.plataforma.title">Plataforma Educativa</h3>
+                        <p data-i18n="proyectos.plataforma.desc">Plataforma de educación médica interactiva. Próximamente disponible.</p>
                         <div class="project-tags">
-                            <span class="tag tag-private">En desarrollo</span>
+                            <span class="tag tag-private" data-i18n="tag.desarrollo">En desarrollo</span>
                         </div>
                     </article>
                 </div>
@@ -189,14 +208,15 @@
         <!-- Publicaciones -->
         <section id="publicaciones" class="section publicaciones">
             <div class="container">
-                <p class="section-eyebrow">Investigación</p>
-                <h2 class="section-title">Publicaciones científicas</h2>
+                <p class="section-eyebrow" data-i18n="pub.eyebrow">Investigación</p>
+                <h2 class="section-title" data-i18n="pub.title">Publicaciones científicas</h2>
 
                 <div class="pub-list">
                     <article class="pub-item">
-                        <div class="pub-meta">2026 · Polo del Conocimiento</div>
-                        <h3>Verónica Alejandra Jaya-Baldeón</h3>
-                        <p>Jaya-Baldeón VA, <strong>Leyva Proenza CA</strong>, et al.</p>
+                        <div class="pub-meta">2026 · En prensa · Polo del Conocimiento</div>
+                        <h3>Publicación en prensa</h3>
+                        <p><strong>Leyva Proenza CA</strong>, Jaya-Baldeón VA, et al.</p>
+                        <p class="pub-affil"><a href="https://orcid.org/0000-0002-2681-6927" target="_blank" rel="noopener">Ver en ORCID</a></p>
                     </article>
 
                     <article class="pub-item">
@@ -272,14 +292,21 @@
                         <p class="pub-affil">Facultad de Salud Pública, Escuela de Medicina. ESPOCH, Riobamba, Ecuador.</p>
                     </article>
                 </div>
+
+                <div class="pub-en-cta" hidden>
+                    <p data-i18n="pub.en.cta">Explora el listado completo de publicaciones en ORCID.</p>
+                    <a href="https://orcid.org/0000-0002-2681-6927" class="btn btn-primary" target="_blank" rel="noopener">
+                        <i class="ph ph-identification-card" aria-hidden="true"></i> <span data-i18n="pub.en.btn">Ver en ORCID</span>
+                    </a>
+                </div>
             </div>
         </section>
 
         <!-- Stack -->
         <section id="stack" class="section stack-section">
             <div class="container">
-                <p class="section-eyebrow">Stack</p>
-                <h2 class="section-title">Herramientas y tecnologías</h2>
+                <p class="section-eyebrow" data-i18n="stack.eyebrow">Stack</p>
+                <h2 class="section-title" data-i18n="stack.title">Herramientas y tecnologías</h2>
 
                 <div class="stack-group">
                     <h3 class="stack-label">Frontend</h3>
@@ -305,24 +332,24 @@
                 </div>
 
                 <div class="stack-group">
-                    <h3 class="stack-label">Herramientas</h3>
+                    <h3 class="stack-label" data-i18n="stack.herramientas">Herramientas</h3>
                     <div class="stack-pills">
                         <span class="pill cat-educacion">Git</span>
                         <span class="pill cat-educacion">TTS</span>
-                        <span class="pill cat-educacion">IA generativa</span>
+                        <span class="pill cat-educacion" data-i18n="stack.pill.ia">IA generativa</span>
                         <span class="pill cat-educacion">LaTeX</span>
                         <span class="pill cat-educacion">matplotlib</span>
                     </div>
                 </div>
 
                 <div class="stack-group">
-                    <h3 class="stack-label">Clínico</h3>
+                    <h3 class="stack-label" data-i18n="stack.clinico">Clínico</h3>
                     <div class="stack-pills">
-                        <span class="pill cat-medicina">Neonatología</span>
+                        <span class="pill cat-medicina" data-i18n="stack.pill.neonatologia">Neonatología</span>
                         <span class="pill cat-medicina">PNI</span>
                         <span class="pill cat-medicina">NRP</span>
                         <span class="pill cat-medicina">CIE-10</span>
-                        <span class="pill cat-medicina">Curvas de crecimiento</span>
+                        <span class="pill cat-medicina" data-i18n="stack.pill.curvas">Curvas de crecimiento</span>
                     </div>
                 </div>
             </div>
@@ -331,21 +358,21 @@
         <!-- Contacto -->
         <section id="contacto" class="section contacto">
             <div class="container">
-                <p class="section-eyebrow">Contacto</p>
-                <h2 class="section-title">Hablemos</h2>
-                <p class="contacto-text">¿Colaboración, proyectos health-tech o simplemente conectar? Escríbeme.</p>
+                <p class="section-eyebrow" data-i18n="contacto.eyebrow">Contacto</p>
+                <h2 class="section-title" data-i18n="contacto.title">Hablemos</h2>
+                <p class="contacto-text" data-i18n="contacto.text">¿Colaboración, proyectos health-tech o simplemente conectar? Escríbeme.</p>
                 <div class="contacto-links">
-                    <a id="email-link" href="#" class="btn btn-primary">
-                        <i class="ph ph-envelope-simple"></i> <span id="email-text"></span>
+                    <a id="email-link" href="mailto:carlos.leyva@espoch.edu.ec" class="btn btn-primary">
+                        <i class="ph ph-envelope-simple" aria-hidden="true"></i> <span id="email-text"></span>
                     </a>
                     <a href="https://www.linkedin.com/in/carlos-alberto-leyva-proenza/" class="btn btn-ghost" target="_blank" rel="noopener">
-                        <i class="ph ph-linkedin-logo"></i> LinkedIn
+                        <i class="ph ph-linkedin-logo" aria-hidden="true"></i> LinkedIn
                     </a>
                     <a href="https://github.com/LeyvaProenza" class="btn btn-ghost" target="_blank" rel="noopener">
-                        <i class="ph ph-github-logo"></i> GitHub
+                        <i class="ph ph-github-logo" aria-hidden="true"></i> GitHub
                     </a>
                     <a href="https://orcid.org/0000-0002-2681-6927" class="btn btn-ghost" target="_blank" rel="noopener">
-                        <i class="ph ph-identification-card"></i> ORCID
+                        <i class="ph ph-identification-card" aria-hidden="true"></i> ORCID
                     </a>
                 </div>
             </div>
@@ -354,10 +381,11 @@
 
     <footer class="site-footer">
         <div class="container">
-            <p>&copy; 2026 Carlos Alberto Leyva Proenza. Construido con HTML, CSS y JavaScript vanilla.</p>
+            <p data-i18n="footer.built">© 2026 Carlos Alberto Leyva Proenza. Construido con HTML, CSS y JavaScript vanilla.</p>
         </div>
     </footer>
 
+    <script src="i18n.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
